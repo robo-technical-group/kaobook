@@ -1038,57 +1038,8 @@
 %----------------------------------------------------------------------------------------
 %	ENCODING AND FONTS
 %----------------------------------------------------------------------------------------
-
-% https://tex.stackexchange.com/questions/47576/combining-ifxetex-and-ifluatex-with-the-logical-or-operation
-% Introduce a command to find out whether the compiler is XeTeX or LuaTeX
-\newif\ifxetexorluatex
-\ifxetex
-	\xetexorluatextrue
-\else
-	\ifluatex
-		\xetexorluatextrue
-	\else
-		\xetexorluatexfalse
-	\fi
-\fi
-
-\ifxetexorluatex
-	\RequirePackage{amssymb} % Must be loaded before unicode-math
-	\RequirePackage[force]{filehook} % Fixes an error
-	\RequirePackage{unicode-math} % Math fonts in xetexorluatex
-	\setromanfont[ % Libertinus Serif font
-		Scale=1.04
-	]{Libertinus Serif}
-	\setsansfont[ % Libertinus Sans font
-		Scale=1
-	]{Libertinus Sans}
-	\setmonofont[ % Libertinus Mono font
-		Scale=.89
-	]{Liberation Mono}
-	\setmathfont{Libertinus Math} % Libertinus Math font
-	\ifluatex
-	\else
-		\RequirePackage{morewrites} % Fix some errors related to floats (not necessary with LuaLaTeX
-	\fi
-\else
-	\RequirePackage[utf8]{inputenc} % utf8 encoding in the input (.tex) file
-	\RequirePackage[T1]{fontenc} % utf8 encoding in the output (.pdf) file
-
-	\RequirePackage{amssymb} % Math symbols, including \blacktriangleright, used for bullets
-	\RequirePackage[scaled=.97,helvratio=.93,p,theoremfont]{newpxtext} % Serif palatino font
-	\RequirePackage[vvarbb,smallerops,bigdelims]{newpxmath} % Math palatino font
-	\RequirePackage[scaled=.85]{beramono} % Monospace font
-	\RequirePackage[scr=rsfso,cal=boondoxo]{mathalfa} % Mathcal from STIX, unslanted a bit
-	\RequirePackage{morewrites} % Fix some errors related to floats
-\fi
-
-% When using the Palatino (newpxtext) font, it is better to use a 
-% slightly larger stretch.
-%\setstretch{1.10}
-\linespread{1.07} % Give Palatino more leading (space between lines)
-
-% Fix for the subequation environment (https://tex.stackexchange.com/questions/27053/too-much-space-between-full-paragraph-and-subequations-env)
-\preto\subequations{\ifhmode\unskip\fi}
+\RequirePackage{morewrites} % Fix some errors related to floats
+\RequirePackage{amssymb} % Math symbols, including \blacktriangleright, used for bullets
 
 %----------------------------------------------------------------------------------------
 %	HYPERREFERENCES
