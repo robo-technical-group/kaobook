@@ -726,6 +726,11 @@
 		capbesidesep=marginparsep,%
 		floatwidth=\textwidth,%Width of the figure equal to the width of the text
 	}%
+	\floatsetup[widelisting]{% Captions for wide listings
+		margins=hangoutside,% Put captions above the lstlisting
+		facing=yes,%
+		capposition=above%
+	}%
 	\captionsetup*[lstlisting]{%
 		format=llap,%
 		labelsep=space,%
@@ -790,6 +795,11 @@
 		capbesidesep=marginparsep,%
 		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
+	\floatsetup[widelisting]{% Captions for wide listings
+		margins=hangoutside,% Put captions above the lstlisting
+		facing=no,%
+		capposition=above%
+	}%
 	\captionsetup*[lstlisting]{%
 		format=llap,%
 		labelsep=space,%
@@ -827,6 +837,11 @@
 		floatwidth=\textwidth%
 	}
 	\floatsetup[listing]{ % Captions for listings (minted package)
+		capposition=above,%
+		margins=centering,%
+		floatwidth=\textwidth%
+	}
+	\floatsetup[widelisting]{ % Captions for wide listings
 		capposition=above,%
 		margins=centering,%
 		floatwidth=\textwidth%
